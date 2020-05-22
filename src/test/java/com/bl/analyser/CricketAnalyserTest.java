@@ -33,4 +33,11 @@ public class CricketAnalyserTest {
         List<BatsmanCSVDAO> hitBoundries = cricketAnalyser.getTopStatus("Boundries");
         Assert.assertEquals("Andre Russell",hitBoundries.get(0).player);
     }
+    @Test
+    public void givenIPLCricketerLeagueData_WhenSortedOnStrikeRateWith6sAnd4s_ShouldReturnBestStrikingRateWith6sAnd4s() {
+        CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BATTING);
+        cricketAnalyser.loadIPLCricketerData(IPL_MOST_RUN_CSV_FILE_PATH);
+        List<BatsmanCSVDAO> bestStrikerateAnd6sAnd4s = cricketAnalyser.getTopStatus("StrikeRateWith6sAnd4s");
+        Assert.assertEquals("Andre Russell",bestStrikerateAnd6sAnd4s.get(0).player);
+    }
 }
