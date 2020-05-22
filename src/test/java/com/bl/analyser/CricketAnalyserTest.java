@@ -3,12 +3,14 @@ package com.bl.analyser;
 import com.bl.model.BatsmanCSVDAO;
 import org.junit.Assert;
 import org.junit.Test;
+import com.bl.model.BowlerCSVDAO;
 
 import java.util.List;
 
 public class CricketAnalyserTest {
 
     private static final String IPL_MOST_RUN_CSV_FILE_PATH = "src/test/resources/IPL2019FactsheetMostRuns.csv";
+    private static final String IPL_MOST_WICKETS_CSV_FILE_PATH = "src/test/resources/IPL2019FactsheetMostWkts.csv";
 
     @Test
     public void givenIPLCricketLeagueData_WhenSortedOnAvg_ShouldReturnTopBattingAveragePlayer() {
@@ -55,5 +57,13 @@ public class CricketAnalyserTest {
         cricketAnalyser.loadIPLCricketerData(IPL_MOST_RUN_CSV_FILE_PATH);
         List<BatsmanCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("MaximumRunsWithAverage");
         Assert.assertEquals("David Warner",greatAvgWithBestStrikeRate.get(0).player);
+    }
+
+    @Test
+    public void givenIPLCricketerLeagueData_WhenSortedOnAverage_ShouldReturnTopBowlingAverage() {
+        CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BOWLING);
+        cricketAnalyser.loadIPLCricketerData(IPL_MOST_WICKETS_CSV_FILE_PATH);
+        List<BowlerCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("BallingAvg");
+        Assert.assertEquals("Krishnappa Gowtham",greatAvgWithBestStrikeRate.get(0).player);
     }
 }
