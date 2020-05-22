@@ -88,7 +88,7 @@ public class CricketAnalyserTest {
         CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BOWLING);
         cricketAnalyser.loadIPLCricketerData(IPL_MOST_WICKETS_CSV_FILE_PATH);
         List<BowlerCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("StrikingRateWith5wAnd4w");
-        Assert.assertEquals("Krishnappa Gowtham",greatAvgWithBestStrikeRate.get(0).player);
+        Assert.assertEquals("Lasith Malinga",greatAvgWithBestStrikeRate.get(0).player);
     }
 
     @Test
@@ -105,5 +105,13 @@ public class CricketAnalyserTest {
         cricketAnalyser.loadIPLCricketerData(IPL_MOST_WICKETS_CSV_FILE_PATH);
         List<BowlerCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("WicketsWithBowlingAverage");
         Assert.assertEquals("Imran Tahir",greatAvgWithBestStrikeRate.get(0).player);
+    }
+
+    @Test
+    public void givenIPLCricketerLeagueData_WhenSortedOnAverage_ShouldReturnBestBattingAndBowlingAverage() {
+        CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BATTING);
+        cricketAnalyser.loadIPLCricketerData(IPL_MOST_RUN_CSV_FILE_PATH,IPL_MOST_WICKETS_CSV_FILE_PATH);
+        List<BatsmanCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("BattingBallingAvg");
+        Assert.assertEquals("MS Dhoni",greatAvgWithBestStrikeRate.get(0).player);
     }
 }
