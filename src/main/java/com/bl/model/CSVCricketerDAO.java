@@ -25,6 +25,7 @@ public class CSVCricketerDAO {
     public double eCon;
     public int fourWicket;
     public int fiveWicket;
+    public int boundries;
 
     public CSVCricketerDAO(BatsmanCSVDAO batsmanCSVDAO) {
 
@@ -42,6 +43,7 @@ public class CSVCricketerDAO {
         halfCentury = batsmanCSVDAO.halfCentury;
         four = batsmanCSVDAO.four;
         six = batsmanCSVDAO.six;
+        boundries=four+six;
     }
 
     public CSVCricketerDAO(BowlerCSVDAO bowlerCSVDAO) {
