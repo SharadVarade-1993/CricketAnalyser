@@ -41,8 +41,12 @@ public class SortedData {
                 break;
             case "StrikingRateWith5wAnd4w":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.strikeRate);
-                dataComparator = dataComparator.thenComparingInt(csvCricketerDAO -> csvCricketerDAO.fiveWicket);
-                dataComparator = dataComparator.thenComparingInt(csvCricketerDAO -> csvCricketerDAO.fourWicket);
+                dataComparator = dataComparator.thenComparing(csvCricketerDAO -> csvCricketerDAO.fiveWicket);
+                dataComparator = dataComparator.thenComparing(csvCricketerDAO -> csvCricketerDAO.fourWicket);
+                break;
+            case "BowlingAvgWithStrikeRate":
+                dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.ballAvg);
+                dataComparator = dataComparator.thenComparing(csvCricketerDAO -> csvCricketerDAO.strikeRate);
                 break;
             case "player":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.player);
