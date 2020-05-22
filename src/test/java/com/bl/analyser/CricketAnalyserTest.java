@@ -92,10 +92,18 @@ public class CricketAnalyserTest {
     }
 
     @Test
-    public void givenIPLCricketerLeagueData_WhenSortedOnBowlingAverageWithStrikingRate_ShouldReturnGreatBowlingAverageWithBestStrikingRateOfBowler() {
+    public void givenIPLCricketerLeagueData_WhenSortedOnAverageWithStrikingRate_ShouldReturnGreatBowlingAverageWithBestStrikingRate() {
         CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BOWLING);
         cricketAnalyser.loadIPLCricketerData(IPL_MOST_WICKETS_CSV_FILE_PATH);
         List<BowlerCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("BowlingAvgWithStrikeRate");
         Assert.assertEquals("Krishnappa Gowtham",greatAvgWithBestStrikeRate.get(0).player);
+    }
+
+    @Test
+    public void givenIPLCricketerLeagueData_WhenSortedOnWicketsAndAverage_ShouldReturnMaxWicketsWithGreatBowlingAverage() {
+        CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BOWLING);
+        cricketAnalyser.loadIPLCricketerData(IPL_MOST_WICKETS_CSV_FILE_PATH);
+        List<BowlerCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("WicketsWithBowlingAverage");
+        Assert.assertEquals("Imran Tahir",greatAvgWithBestStrikeRate.get(0).player);
     }
 }
