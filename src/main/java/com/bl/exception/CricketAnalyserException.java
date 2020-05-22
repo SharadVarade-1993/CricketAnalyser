@@ -1,6 +1,6 @@
 package com.bl.exception;
 
- class CricketAnalserException extends RuntimeException {
+ public  class CricketAnalserException extends RuntimeException {
     public enum ExceptionType {
         PLAYER_ROLE_NOT_FOUND,CRICKETER_FILE_PROBLEM, FILE_WRONG_HEADER, NO_CRICKETER_DATA;
     }

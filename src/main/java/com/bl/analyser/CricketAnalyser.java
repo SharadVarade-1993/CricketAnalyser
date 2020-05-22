@@ -28,12 +28,7 @@ public class CricketAnalyser {
             throw new CricketAnalserException("No Cricketer Data", CricketAnalserException.ExceptionType.NO_CRICKETER_DATA);
         }
         Comparator<CSVCricketerDAO> dataComparator = sortedData.sortedColumnWiseData(columnName);
-       /* ArrayList cricketerDTOS = csvMap.values().stream().
-                                    sorted(dataComparator).
-                                    map(csvCricketerDAO -> csvCricketerDAO.getCricketDTO(role)).
-                                    collect(Collectors.toCollection(ArrayList::new));
-        String sortedStateDataJson = new Gson().toJson(cricketerDTOS);
-        return sortedStateDataJson;*/
+
 
         List sortedList = csvMap.values().stream()
                 .sorted(dataComparator)
@@ -42,5 +37,4 @@ public class CricketAnalyser {
         Collections.reverse(sortedList);
         return sortedList;
     }
-
 }
