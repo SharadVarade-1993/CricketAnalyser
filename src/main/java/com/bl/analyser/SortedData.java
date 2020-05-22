@@ -12,11 +12,13 @@ public class SortedData {
             case "Avg":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.avg);
                 break;
+            case "StrikeRate":
+                dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.strikeRate);
+                break;
             case "player":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.player);
                 break;
         }
         return dataComparator;
     }
-
 }
