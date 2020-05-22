@@ -40,4 +40,12 @@ public class CricketAnalyserTest {
         List<BatsmanCSVDAO> bestStrikerateAnd6sAnd4s = cricketAnalyser.getTopStatus("StrikeRateWith6sAnd4s");
         Assert.assertEquals("Andre Russell",bestStrikerateAnd6sAnd4s.get(0).player);
     }
+
+    @Test
+    public void givenIPLCricketerLeagueData_WhenSortedOnAverageWithStrikeRate_ShouldReturnGreatAverageWithBestStrikingRate() {
+        CricketAnalyser cricketAnalyser = new CricketAnalyser(CricketAnalyser.Role.BATTING);
+        cricketAnalyser.loadIPLCricketerData(IPL_MOST_RUN_CSV_FILE_PATH);
+        List<BatsmanCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("AverageWithStrikeRate");
+        Assert.assertEquals("MS Dhoni",greatAvgWithBestStrikeRate.get(0).player);
+    }
 }
