@@ -18,6 +18,10 @@ public class SortedData {
             case "Boundries":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.boundries);
                 break;
+            case "StrikeRateWith6sAnd4s":
+                dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.boundries);
+                dataComparator = dataComparator.thenComparing(cricketerCSV -> cricketerCSV.strikeRate);
+                break;
             case "player":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.player);
                 break;
