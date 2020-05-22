@@ -33,6 +33,9 @@ public class SortedData {
             case "BallingAvg":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.ballAvg);
                 break;
+            case "StrikingRateOfBowler":
+                dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.strikeRate);
+                break;
             case "player":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.player);
                 break;
