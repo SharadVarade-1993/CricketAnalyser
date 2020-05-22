@@ -18,7 +18,7 @@ public class CricketAnalyser {
         this.role = role;
     }
 
-    public int loadIPLCricketerData(String csvFilePath) {
+    public int loadIPLCricketerData(String... csvFilePath) {
         csvMap = new CriketersAdapterFactory().getCriketersData(role, csvFilePath);
         return csvMap.size();
     }

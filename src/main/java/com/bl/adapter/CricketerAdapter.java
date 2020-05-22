@@ -1,5 +1,4 @@
 package com.bl.adapter;
-import com.bl.analyser.CricketAnalyser;
 import com.bl.exception.CricketAnalserException;
 import com.bl.model.BatsmanCSVDAO;
 import com.bl.model.BowlerCSVDAO;
@@ -11,23 +10,22 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.StreamSupport;
 
-public class CricketerAdapter {
-    public<E> Map<String, CSVCricketerDAO> loadIPLCricketerData(Class<E> csvCricketerClass,CricketAnalyser.Role role, String csvFilePath) {
+public  class CricketerAdapter {
+    public<E> Map<String, CSVCricketerDAO> loadIPLCricketerData(Class<E> csvCricketerClass, String csvFilePath) {
         Map<String,CSVCricketerDAO> csvMap = new HashMap<>();
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))){
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
-            Iterator<E> csvIterator = csvBuilder.getCSVFileIterator(reader,csvCricketerClass);
-            Iterable<E> csvIterable = () -> csvIterator;
+            List<E> CSVList = csvBuilder.getListCsvFile(reader, csvCricketerClass);
             if (csvCricketerClass.getName().equals("com.bl.model.BatsmanCSVDAO")) {
-                StreamSupport.stream(csvIterable.spliterator(), false)
+                StreamSupport.stream(CSVList.spliterator(), false)
                         .map(BatsmanCSVDAO.class::cast)
                         .forEach(cricketerCSV -> csvMap.put(cricketerCSV.player, new CSVCricketerDAO(cricketerCSV)));
             }else if (csvCricketerClass.getName().equals("com.bl.model.BowlerCSVDAO")){
-                StreamSupport.stream(csvIterable.spliterator(), false)
+                StreamSupport.stream(CSVList.spliterator(), false)
                         .map(BowlerCSVDAO.class::cast)
                         .forEach(cricketerCSV -> csvMap.put(cricketerCSV.player, new CSVCricketerDAO(cricketerCSV)));
             }

@@ -15,7 +15,8 @@ public class OpenCSVBuilder implements ICSVBuilder {
     }
 
     @Override
-    public List getListCsvFile(Reader reader, Class csvClass) {
+    public List getListCsvFile(Reader reader, Class csvClass)
+    {
         return this.getCsvToBean(reader, csvClass).parse();
     }
 
