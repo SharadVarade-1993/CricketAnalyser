@@ -22,6 +22,10 @@ public class SortedData {
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.boundries);
                 dataComparator = dataComparator.thenComparing(cricketerCSV -> cricketerCSV.strikeRate);
                 break;
+            case "AverageWithStrikeRate":
+                dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.avg);
+                dataComparator = dataComparator.thenComparing(cricketerCSV -> cricketerCSV.strikeRate);
+                break;
             case "player":
                 dataComparator = Comparator.comparing(cricketerCSV -> cricketerCSV.player);
                 break;
