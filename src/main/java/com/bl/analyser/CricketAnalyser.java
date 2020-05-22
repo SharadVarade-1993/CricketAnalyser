@@ -23,7 +23,7 @@ public class CricketAnalyser {
         return csvMap.size();
     }
 
-    public List getTopBattingAverage(String columnName){
+    public List getTopStatus(String columnName){
         if (csvMap == null || csvMap.size() == 0){
             throw new CricketAnalserException("No Cricketer Data", CricketAnalserException.ExceptionType.NO_CRICKETER_DATA);
         }
