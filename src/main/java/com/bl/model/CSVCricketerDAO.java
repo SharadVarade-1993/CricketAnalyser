@@ -44,6 +44,7 @@ public class CSVCricketerDAO {
         four = batsmanCSVDAO.four;
         six = batsmanCSVDAO.six;
         boundries=four+six;
+
     }
 
     public CSVCricketerDAO(BowlerCSVDAO bowlerCSVDAO) {

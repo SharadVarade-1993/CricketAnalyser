@@ -1,7 +1,5 @@
 package com.bl.adapter;
 
-
-
 import com.bl.model.BowlerCSVDAO;
 import com.bl.model.CSVCricketerDAO;
 

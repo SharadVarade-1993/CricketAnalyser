@@ -28,8 +28,6 @@ public class CricketAnalyser {
             throw new CricketAnalserException("No Cricketer Data", CricketAnalserException.ExceptionType.NO_CRICKETER_DATA);
         }
         Comparator<CSVCricketerDAO> dataComparator = sortedData.sortedColumnWiseData(columnName);
-
-
         List sortedList = csvMap.values().stream()
                 .sorted(dataComparator)
                 .map(csvCricketerDAO -> csvCricketerDAO.getCricketDTO(role))
