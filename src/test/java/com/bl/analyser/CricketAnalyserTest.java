@@ -123,4 +123,5 @@ public class CricketAnalyserTest {
         List<BatsmanCSVDAO> greatAvgWithBestStrikeRate = cricketAnalyser.getTopStatus("AllRounders");
         Assert.assertEquals("Andre Russell",greatAvgWithBestStrikeRate.get(0).player);
     }
+
 }
