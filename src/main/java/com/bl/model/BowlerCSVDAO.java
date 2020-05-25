@@ -42,7 +42,6 @@ public class BowlerCSVDAO {
     @CsvBindByName(column = "5w", required = true)
     public int fiveWicket;
 
-
     @Override
     public String toString() {
         return "BowlerDAO{" +

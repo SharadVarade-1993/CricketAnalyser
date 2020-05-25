@@ -17,7 +17,6 @@ import java.util.stream.StreamSupport;
 
 public class BatmanAdapter extends CricketerAdapter{
 
-
     public <E> Map<String, CSVCricketerDAO> loadIPLCricketerData(String... csvFilePath) {
         Map<String, CSVCricketerDAO> batmanMap = super.loadIPLCricketerData(BatsmanCSVDAO.class, csvFilePath[0]);
         if (csvFilePath.length == 2) {

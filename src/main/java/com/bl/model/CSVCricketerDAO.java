@@ -28,7 +28,6 @@ public class CSVCricketerDAO {
     public int boundries;
 
     public CSVCricketerDAO(BatsmanCSVDAO batsmanCSVDAO) {
-
         pos = batsmanCSVDAO.pos;
         player = batsmanCSVDAO.player;
         mat = batsmanCSVDAO.mat;
@@ -44,7 +43,6 @@ public class CSVCricketerDAO {
         four = batsmanCSVDAO.four;
         six = batsmanCSVDAO.six;
         boundries=four+six;
-
     }
 
     public CSVCricketerDAO(BowlerCSVDAO bowlerCSVDAO) {
@@ -64,7 +62,6 @@ public class CSVCricketerDAO {
     }
 
     public CSVCricketerDAO() {
-
     }
 
     @Override

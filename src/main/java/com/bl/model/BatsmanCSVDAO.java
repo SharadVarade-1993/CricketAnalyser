@@ -65,7 +65,6 @@ public class BatsmanCSVDAO {
                 '}';
     }
 
-
     public BatsmanCSVDAO(int pos, String player, int mat, int inns, int notOut, int runs, String highScore, double avg, int ballsFaced, double strikeRate, int century, int halfCentury, int four, int six) {
         this.pos = pos;
         this.player = player;
